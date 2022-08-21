@@ -20,3 +20,8 @@ package com.jmzd.ghazal.movies
 *
 *
 * */
+
+/*
+* شروع با
+* -> Splash Fragment
+* */

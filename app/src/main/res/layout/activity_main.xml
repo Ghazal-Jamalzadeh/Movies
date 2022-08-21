@@ -5,14 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <!--Nav controller-->
+    <fragment
+        android:id="@+id/navHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_main" />
+    <!--BottomNavigation-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:backgroundTint="@color/chineseBlack"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@color/color_bottom_nav"
+        app:itemTextColor="@color/color_bottom_nav"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:menu="@menu/menu_main" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+یک ویو به عنوان navHost قرار میدیم
+این در واقع چارچوب نمایش فرگمنت های ما میشه
+یک navGraph هم از ما میگیرد
+
+یک ویو به عنوان BottomNav قرار میدیم
+یک menu از ما میگیرد
+
+میخواهیم باتم نویگیشن ما رنگ های مشخصی داشته باشد که خودمون تعریف میکنیم
+برای این کار:
+res -> RClick -> new Resource directory -> color
+ ما در کالر میتوانیم بیایم یک سری رنگ ها و سلکتورهای مربوط به رنگ رو تعریف کنیم
+ و برای ویوهای مختلف ست کنیم
+ مثلا زمانی که انتخاب شد چه رنگی باشه وقتی از حالت سلکت در اومد چه رنگی شه
+ حالت های مختلفی مثل focus یا selected داره
+
+ یک فایل با اسم color_bottom_nav برای این کار ساختیم
+ حالا میایم این فایلو به کدام ویژگی ها میدیم؟
+  itemIconTint & itemTextColor
+
+  برمیگردیم به MainActivity برای ادامه کار
+  -> MainActivity
+
+-->
