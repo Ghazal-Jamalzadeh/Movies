@@ -1,14 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.register.RegisterFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--Avatar-->
+    <ImageView
+        android:id="@+id/userAvatarImg"
+        android:layout_width="@dimen/_80mdp"
+        android:layout_height="@dimen/_80mdp"
+        android:layout_marginTop="@dimen/_50mdp"
+        android:src="@drawable/user_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Name-->
+    <!-- اگر استایل را دستی بدیم به این ها باید ۳ بار تکرارش کرد-->
+    <!-- پس بهتره استایل را در استایل ها تعریف کنیم-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameInput"
+        style="@style/CustomFilledBox"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30mdp"
+        android:layout_marginTop="@dimen/_50mdp"
+        android:hint="@string/name"
+        app:layout_constraintTop_toBottomOf="@id/userAvatarImg"
+        app:startIconDrawable="@drawable/ic_round_person_24">
 
-</FrameLayout>
+        <!-- در واقع TextInputLayout یک پیکربندی کلیه که میاد اون ویژگی ها که میخوایم رو فراهم میکنه -->
+        <!-- ولی ما اطلاعات را باید از ادیت تکست بگیریم دیگه -->
+        <!--اگه به جای ادیت تکست عادی از TextInputEditText استفاده کنید دیگه خیالتون راحته که با هم مچن-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEdt"
+            style="@style/TextViewLightStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14font_mdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInput"
+        style="@style/CustomFilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30mdp"
+        android:layout_marginTop="@dimen/_20mdp"
+        android:hint="@string/email"
+        app:layout_constraintTop_toBottomOf="@id/nameInput"
+        app:startIconDrawable="@drawable/ic_round_email_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEdt"
+            style="@style/TextViewLightStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14font_mdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--Password-->
+    <!-- برای ایجاد حالت چشم باید چیکار کنیم؟ -->
+    <!-- زمان یکه از TextInputLayout استفاده میکنیم attribute های مختلفی دارد-->
+    <!--مثلا error داره و error count داره که میگه چند تا کاراکتر نشون بده برای ارور -->
+    <!-- یا مثلا میخوای بگی که چند تا کاراکتر نشون بده. مثلا مینیموم باید ۸ باشه -->
+    <!-- app:passwordToggleEnabled="true" آیکون چشم را ایجاد میکند -->
+    <!-- passwordToggleTint رنگ آیکون چشم -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInput"
+        style="@style/CustomFilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30mdp"
+        android:layout_marginTop="@dimen/_20mdp"
+        android:hint="@string/password"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/philippineSilver"
+        app:startIconDrawable="@drawable/ic_round_lock_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEdt"
+            style="@style/TextViewLightStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14font_mdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--Submit-->
+    <!-- از متریال باتن که استفاده کنیم یه سری امکانات بیشتری داریم مثل گرد کردن گوشه ها -->
+    <!-- چون یه دکمه بیشتر نداریم استایل هاشو در فایل استایل نمینویسیم -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submitBtn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50mdp"
+        android:layout_marginTop="@dimen/_40mdp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/submit"
+        android:textColor="@color/gunmetal"
+        android:textSize="@dimen/_18font_mdp"
+        app:cornerRadius="@dimen/_3mdp"
+        app:layout_constraintEnd_toEndOf="@id/passwordInput"
+        app:layout_constraintStart_toStartOf="@id/passwordInput"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+    <!--Loading-->
+    <ProgressBar
+        android:id="@+id/submitLoading"
+        android:layout_width="@dimen/_20mdp"
+        android:layout_height="@dimen/_20mdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/submitBtn"
+        app:layout_constraintEnd_toEndOf="@id/submitBtn"
+        app:layout_constraintStart_toStartOf="@id/submitBtn"
+        app:layout_constraintTop_toTopOf="@id/submitBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

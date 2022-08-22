@@ -38,10 +38,12 @@
         <item name="fontFamily">sans-serif-light</item>
     </style>
     <!--TextInputLayout-->
+    <!--حواستون باشه موقع انتخاب پرنت از متریال ۳ استفاده نکنید که با کرش رو به رو میشید-->
+    <!--پرنتی که انتخاب میکنیم تعیین کننده شکل باکس ما خواهد بود و گزینه های متنوعی داریم-->
     <style name="CustomFilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="hintTextColor">@color/crayola</item>
-        <item name="boxStrokeColor">@color/crayola</item>
-        <item name="boxBackgroundColor">@color/gunmetal</item>
+        <item name="hintTextColor">@color/crayola</item> <!--زرد-->
+        <item name="boxStrokeColor">@color/crayola</item><!--زرد-->
+        <item name="boxBackgroundColor">@color/gunmetal</item><!--مشکی-->
         <item name="startIconTint">@color/philippineSilver</item>
     </style>
     <!--RoundedImageView-->
