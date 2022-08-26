@@ -3,6 +3,7 @@ package com.jmzd.ghazal.movies.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jmzd.ghazal.movies.models.home.ResponseGenersList
 import com.jmzd.ghazal.movies.models.home.ResponseMoviesList
 import com.jmzd.ghazal.movies.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +25,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repository: HomeRepository) : ViewModel() {
 
     val topMoviesList = MutableLiveData<ResponseMoviesList>()
-//    val genresList = MutableLiveData<ResponseGenresList>()
+    val genresList = MutableLiveData<ResponseGenersList>()
 //    val lastMoviesList = MutableLiveData<ResponseMoviesList>()
 //    val loading = MutableLiveData<Boolean>()
 
@@ -35,12 +36,12 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         }
     }
 
-//    fun loadGenresList() = viewModelScope.launch {
-//        val response = repository.genresList()
-//        if (response.isSuccessful) {
-//            genresList.postValue(response.body())
-//        }
-//    }
+    fun loadGenresList() = viewModelScope.launch {
+        val response = repository.genresList()
+        if (response.isSuccessful) {
+            genresList.postValue(response.body())
+        }
+    }
 //
 //    fun loadLastMoviesList() = viewModelScope.launch {
 //        loading.postValue(true)

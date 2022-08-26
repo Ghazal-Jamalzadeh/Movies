@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.jmzd.ghazal.movies.databinding.FragmentHomeBinding
+import com.jmzd.ghazal.movies.ui.home.adapters.GenresAdapter
 import com.jmzd.ghazal.movies.ui.home.adapters.TopMoviesAdapter
 import com.jmzd.ghazal.movies.utils.initRecycler
 import com.jmzd.ghazal.movies.viewmodel.HomeViewModel
@@ -40,8 +41,8 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var topMoviesAdapter: TopMoviesAdapter
 
-//    @Inject
-//    lateinit var genresAdapter: GenresAdapter
+    @Inject
+    lateinit var genresAdapter: GenresAdapter
 
 //    @Inject
 //    lateinit var lastMoviesAdapter: LastMoviesAdapter
@@ -65,7 +66,7 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         //Call api
         viewModel.loadTopMoviesList(3)
-//        viewModel.loadGenresList()
+        viewModel.loadGenresList()
 //        viewModel.loadLastMoviesList()
     }
 
@@ -108,13 +109,14 @@ class HomeFragment : Fragment() {
                 topMoviesIndicator.attachToRecyclerView(topMoviesRecycler, pagerHelper)
             }
             //Get genres
-//            viewModel.genresList.observe(viewLifecycleOwner) {
-//                genresAdapter.differ.submitList(it)
-//                genresRecycler.initRecycler(
-//                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false),
-//                    genresAdapter
-//                )
-//            }
+            viewModel.genresList.observe(viewLifecycleOwner) {
+                //it : ResponseGenresList
+                genresAdapter.differ.submitList(it)
+                genresRecycler.initRecycler(
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false),
+                    genresAdapter
+                )
+            }
             //Get last movies
 //            viewModel.lastMoviesList.observe(viewLifecycleOwner) {
 //                lastMoviesAdapter.setData(it.data)
