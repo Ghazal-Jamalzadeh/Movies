@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.movies.api
 
+import com.jmzd.ghazal.movies.models.home.ResponseMoviesList
 import com.jmzd.ghazal.movies.models.register.BodyRegister
 import com.jmzd.ghazal.movies.models.register.ResponseRegister
 import retrofit2.Response
@@ -16,9 +17,9 @@ interface ApiServices {
     @POST("register")
     suspend fun registerUser(@Body body: BodyRegister): Response<ResponseRegister>
 
-//    @GET("genres/{genre_id}/movies")
-//    suspend fun moviesTopList(@Path("genre_id") id: Int): Response<ResponseMoviesList>
-//
+    @GET("genres/{genre_id}/movies")
+    suspend fun moviesTopList(@Path("genre_id") id: Int): Response<ResponseMoviesList>
+
 //    @GET("genres")
 //    suspend fun genresList(): Response<ResponseGenresList>
 //

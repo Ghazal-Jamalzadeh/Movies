@@ -49,3 +49,14 @@ package com.jmzd.ghazal.movies
 * در این صورت میتونید از این ریپازیتوری توی چندین صفحه استفاده کنید
 * -> RegisterRepository
 * */
+
+/*
+* مراحل ساخت بخش top movies :
+* 1- xml
+* 2- model
+* 3- apiServices -> api
+* 4- repository -> میگیم اطلاعات از کجا قراره تامین شه
+* 5- viewModel
+*
+*
+* */
