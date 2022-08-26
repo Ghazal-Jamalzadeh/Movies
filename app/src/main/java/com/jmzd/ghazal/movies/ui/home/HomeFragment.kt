@@ -7,6 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import com.jmzd.ghazal.movies.R
 
+/*
+* سناریو :
+* قراره ۳ تا api کال شه توی این صفحه
+* 1- top movies یا همون ترندها
+* 2- generes
+* 3- last movies
+* قراره این ها را با حداقل خط کد کال کنیم
+* همچنین اینو یاد میگیریم که در هر اسکرول ریسایکلر ویو فقط یک آیتم نشون بدیم
+*
+*
+*
+*
+* */
 class HomeFragment : Fragment() {
 
 

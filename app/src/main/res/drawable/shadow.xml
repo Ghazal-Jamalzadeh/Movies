@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- start color : رنگ پس زمینه -->
+    <!-- center color : رنگ پس زمینه transparent -->
+    <!-- end color : transparent -->
+    <!--  90 : از پایین به بالا  -->
     <gradient android:startColor="@color/chineseBlack"
         android:centerColor="@color/chineseBlackAlpha"
         android:endColor="@android:color/transparent"
