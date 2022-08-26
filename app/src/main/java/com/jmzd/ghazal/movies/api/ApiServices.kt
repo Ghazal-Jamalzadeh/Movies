@@ -23,10 +23,10 @@ interface ApiServices {
 
     @GET("genres")
     suspend fun genresList(): Response<ResponseGenersList>
-//
-//    @GET("movies")
-//    suspend fun moviesLastList(): Response<ResponseMoviesList>
-//
+
+    @GET("movies")
+    suspend fun moviesLastList(): Response<ResponseMoviesList>
+
 //    @GET("movies")
 //    suspend fun searchMovie(@Query("q") name: String): Response<ResponseMoviesList>
 //
