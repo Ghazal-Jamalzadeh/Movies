@@ -57,6 +57,8 @@ package com.jmzd.ghazal.movies
 * 3- apiServices -> api
 * 4- repository -> میگیم اطلاعات از کجا قراره تامین شه
 * 5- viewModel
+* 6- adapter
+* 7- fragment
 *
 *
 * */
