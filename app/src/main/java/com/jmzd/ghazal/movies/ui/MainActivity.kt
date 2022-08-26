@@ -19,6 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 * */
 
+/*
+* شناسایی گراف هیلت توسط این اکتیویتی
+* */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     //Binding
