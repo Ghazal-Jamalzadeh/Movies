@@ -59,6 +59,14 @@ package com.jmzd.ghazal.movies
 * 5- viewModel
 * 6- adapter
 * 7- fragment
-*
-*
+* */
+
+/*
+* مراحل پیاده سازی دیتابیس روم :
+* 1- Entity
+* 2- Dao
+* 3- Database class
+* 4- Database Module
+* در واقع در پکیج di اون ماژول های کلی را قرار میدیم
+* هر جا هم نیاز داشتیم برای حالتی از یک ماژول استفاده کنیم میایم اونو تعریفش میکنیم
 * */
