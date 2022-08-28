@@ -84,4 +84,12 @@ dependencies {
     //other
     implementation 'me.relex:circleindicator:2.1.6'
 
+    /*
+    برای استفاده از viewModel delicate ها تو قسمت های قبلی یک کتابخانه ای اد میکردیم (activity ktx) که الان اد نکردیم
+    چون از navigation اسستفاده کردیم و اینا داخل navigation هست نیازی به اد کردن مجدد نیست
+    *
+
+
+    */
+
 }
