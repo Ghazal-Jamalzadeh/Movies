@@ -27,7 +27,7 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
     val topMoviesList = MutableLiveData<ResponseMoviesList>()
     val genresList = MutableLiveData<ResponseGenersList>()
     val lastMoviesList = MutableLiveData<ResponseMoviesList>()
-//    val loading = MutableLiveData<Boolean>()
+    val loading = MutableLiveData<Boolean>()
 
     fun loadTopMoviesList(id: Int) = viewModelScope.launch {
         val response = repository.topMoviesList(id)
@@ -43,12 +43,23 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         }
     }
 
+    /*
+    * باید تصمیم بگیریم که این لودینگ توی کدام api ظاهر شه و gone شه
+    * زیاد جالب نیست که هر api لودینگ جداگانه داشته باشد
+    * ما لودینگ را برای api مربوط به lastMovies در نظر میگیریم
+    *
+    * چطور هندلش میکنیم؟
+    * لودینگ را true میکنیم
+    * سپس api را کال میکنیم و منتظر response میشیم
+    * بعد از دریافت response لودینگ را false میکنیم
+    *
+    * */
     fun loadLastMoviesList() = viewModelScope.launch {
-//        loading.postValue(true)
+        loading.postValue(true)
         val response = repository.lastMoviesList()
         if (response.isSuccessful) {
             lastMoviesList.postValue(response.body())
         }
-//        loading.postValue(false)
+        loading.postValue(false)
     }
 }

@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.jmzd.ghazal.movies.databinding.FragmentHomeBinding
 import com.jmzd.ghazal.movies.ui.home.adapters.GenresAdapter
+import com.jmzd.ghazal.movies.ui.home.adapters.LastMoviesAdapter
 import com.jmzd.ghazal.movies.ui.home.adapters.TopMoviesAdapter
 import com.jmzd.ghazal.movies.utils.initRecycler
+import com.jmzd.ghazal.movies.utils.showInvisible
 import com.jmzd.ghazal.movies.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -38,17 +40,19 @@ class HomeFragment : Fragment() {
     //Binding
     private lateinit var binding: FragmentHomeBinding
 
+    //Adapters
     @Inject
     lateinit var topMoviesAdapter: TopMoviesAdapter
 
     @Inject
     lateinit var genresAdapter: GenresAdapter
 
-//    @Inject
-//    lateinit var lastMoviesAdapter: LastMoviesAdapter
+    @Inject
+    lateinit var lastMoviesAdapter: LastMoviesAdapter
 
     //ViewModel
     private val viewModel: HomeViewModel by viewModels()
+
     //Other
     /*
     * برای این نوع اسکرول کردن که هر بار فقط یک آیتم در صفحه قرار بگیره اندروید یک قابلیتی را به ما میده به اسم pagerSnapHelper
@@ -67,7 +71,7 @@ class HomeFragment : Fragment() {
         //Call api
         viewModel.loadTopMoviesList(3)
         viewModel.loadGenresList()
-//        viewModel.loadLastMoviesList()
+        viewModel.loadLastMoviesList()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -118,11 +122,20 @@ class HomeFragment : Fragment() {
                 )
             }
             //Get last movies
-//            viewModel.lastMoviesList.observe(viewLifecycleOwner) {
-//                lastMoviesAdapter.setData(it.data)
-//                //RecyclerView
-//                lastMoviesRecycler.initRecycler(LinearLayoutManager(requireContext()), lastMoviesAdapter)
-//            }
+            viewModel.lastMoviesList.observe(viewLifecycleOwner) {
+                // it : ResponseMoviesList
+
+                /*
+                * اینجا از differ استفاده نمیکنیم و این متد را کال میکنیم
+                * توضیحات داخل آداپتر آورده شده
+                * ممکنه زیرش قرمز شه بگه من لیستی از دیتا میخوام ولی لیستی که داری بهم میدی nullable هست
+                * برای حل این مشکل:
+                * میتویم علامت سوال ها رو از مدل حذف کنیم
+                * */
+                lastMoviesAdapter.setData(it.data)
+                //RecyclerView
+                lastMoviesRecycler.initRecycler(LinearLayoutManager(requireContext()), lastMoviesAdapter)
+            }
             //Click
 //            lastMoviesAdapter.setOnItemClickListener {
 //                val direction = HomeFragmentDirections.actionToDetail(it.id!!.toInt())
@@ -130,15 +143,16 @@ class HomeFragment : Fragment() {
 //            }
 
             //Loading
-//            viewModel.loading.observe(viewLifecycleOwner) {
-//                if (it) {
-//                    moviesLoading.showInvisible(true)
-//                    moviesScrollLay.showInvisible(false)
-//                } else {
-//                    moviesLoading.showInvisible(false)
-//                    moviesScrollLay.showInvisible(true)
-//                }
-//            }
+            viewModel.loading.observe(viewLifecycleOwner) {
+                // it : boolean
+                if (it) {
+                    moviesLoading.showInvisible(true)
+                    moviesScrollLay.showInvisible(false)
+                } else {
+                    moviesLoading.showInvisible(false)
+                    moviesScrollLay.showInvisible(true)
+                }
+            }
         }
     }
 }

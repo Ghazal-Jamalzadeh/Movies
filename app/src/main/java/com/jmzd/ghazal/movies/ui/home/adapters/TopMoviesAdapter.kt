@@ -32,6 +32,11 @@ class TopMoviesAdapter @Inject constructor() : RecyclerView.Adapter<TopMoviesAda
         holder.setIsRecyclable(false)
     }
 
+    /*
+    * میگیم اگه آیتم ها کمتر ۵ بود سایز لیست را برگردون در غیر این صورت ۵ تا نشون بده
+    * اگه فقط بگیم ۵ و کمتر از ۵ باشه آیتم ها اپ کرش میکنه
+    * به همین علت شرط میذاریم
+    * */
     override fun getItemCount() = if (differ.currentList.size > 5) 5 else differ.currentList.size
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {

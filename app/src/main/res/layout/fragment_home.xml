@@ -107,6 +107,7 @@
 
     </androidx.core.widget.NestedScrollView>
     <!--Loading-->
+    <!-- چون میخوایم کل لایه اصلی را gone کنیم موقع لودینگ پس بیرون مینویسسمش -->
     <ProgressBar
         android:id="@+id/moviesLoading"
         android:layout_width="@dimen/_20mdp"
