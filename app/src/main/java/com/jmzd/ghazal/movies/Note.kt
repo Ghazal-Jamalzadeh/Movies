@@ -69,4 +69,8 @@ package com.jmzd.ghazal.movies
 * 4- Database Module
 * در واقع در پکیج di اون ماژول های کلی را قرار میدیم
 * هر جا هم نیاز داشتیم برای حالتی از یک ماژول استفاده کنیم میایم اونو تعریفش میکنیم
+* 5- Repository
+* 6- ViewModel
+* 7- adapter
+* 8- fragment
 * */
