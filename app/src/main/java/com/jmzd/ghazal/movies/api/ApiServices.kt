@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.movies.api
 
+import com.jmzd.ghazal.movies.models.detail.ResponseDetail
 import com.jmzd.ghazal.movies.models.home.ResponseGenersList
 import com.jmzd.ghazal.movies.models.home.ResponseMoviesList
 import com.jmzd.ghazal.movies.models.register.BodyRegister
@@ -29,7 +30,7 @@ interface ApiServices {
 
     @GET("movies")
     suspend fun searchMovie(@Query("q") name: String): Response<ResponseMoviesList>
-//
-//    @GET("movies/{movie_id}")
-//    suspend fun detailMovie(@Path("movie_id") id: Int): Response<ResponseDetail>
+
+    @GET("movies/{movie_id}")
+    suspend fun detailMovie(@Path("movie_id") id: Int): Response<ResponseDetail>
 }
