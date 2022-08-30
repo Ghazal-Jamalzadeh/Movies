@@ -112,6 +112,7 @@ class SplashFragment : Fragment() {
                 if (it.isEmpty()) {
                     findNavController().navigate(R.id.action_splashFragment_to_registerFragment)
                 } else {
+                    findNavController().popBackStack()
                     findNavController().navigate(R.id.action_to_homeFragment)
                 }
             }
