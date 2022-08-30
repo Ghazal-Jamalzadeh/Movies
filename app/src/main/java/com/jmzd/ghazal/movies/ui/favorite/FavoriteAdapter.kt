@@ -57,9 +57,9 @@ class FavoriteAdapter @Inject constructor() : RecyclerView.Adapter<FavoriteAdapt
 
     private var onItemClickListener: ((MovieEntity) -> Unit)? = null
 
-//    fun setOnItemClickListener(listener: (MovieEntity) -> Unit) {
-//        onItemClickListener = listener
-//    }
+    fun setOnItemClickListener(listener: (MovieEntity) -> Unit) {
+        onItemClickListener = listener
+    }
 
     fun setData(data: List<MovieEntity>) {
         val moviesDiffUtil = MoviesDiffUtils(moviesList, data)

@@ -67,10 +67,10 @@ class SearchFragment : Fragment() {
                 moviesRecycler.initRecycler(LinearLayoutManager(requireContext()), searchAdapter)
             }
             //Click
-//            searchAdapter.setOnItemClickListener {
-//                val direction = SearchFragmentDirections.actionToDetail(it.id!!.toInt())
-//                findNavController().navigate(direction)
-//            }
+            searchAdapter.setOnItemClickListener {
+                val direction = SearchFragmentDirections.actionToDetailFragment(it.id!!.toInt())
+                findNavController().navigate(direction)
+            }
             //Loading
             viewModel.loading.observe(viewLifecycleOwner) {
                 if (it) {

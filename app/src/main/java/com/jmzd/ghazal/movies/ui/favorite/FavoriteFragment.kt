@@ -51,10 +51,10 @@ class FavoriteFragment : Fragment() {
                 favoriteRecycler.initRecycler(LinearLayoutManager(requireContext()), favoriteAdapter)
             }
             //Click
-//            favoriteAdapter.setOnItemClickListener {
-//                val direction = FavoriteFragmentDirections.actionToDetail(it.id)
-//                findNavController().navigate(direction)
-//            }
+            favoriteAdapter.setOnItemClickListener {
+                val direction = FavoriteFragmentDirections.actionToDetailFragment(it.id)
+                findNavController().navigate(direction)
+            }
             //Empty
             viewModel.empty.observe(viewLifecycleOwner) {
                 if (it) {

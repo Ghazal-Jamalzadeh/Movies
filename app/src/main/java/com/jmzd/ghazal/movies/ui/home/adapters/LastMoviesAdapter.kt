@@ -75,6 +75,7 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
                 //Click
                 root.setOnClickListener {
                     onItemClickListener?.let {
+                        //it : (Data) -> Unit 
                         it(item)
                     }
                 }
@@ -82,8 +83,19 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
         }
     }
 
+    /*
+    * برای کلیک یک لامبدا اکسپرشن تعریف میکنیم
+    * ورودیش دیتا هست و خروجی یونیت
+    * در نهایت null را برمیگرداند
+    * */
     private var onItemClickListener: ((Data) -> Unit)? = null
 
+    /*
+    * این ها را قبلا توضیح دادیم
+    * حالا فانکشنش را مینویسیم
+    * یک لیسنر از ما میخواهد
+    * ورودی دیتا و خروجی یونیت
+    * */
     fun setOnItemClickListener(listener: (Data) -> Unit) {
         onItemClickListener = listener
     }

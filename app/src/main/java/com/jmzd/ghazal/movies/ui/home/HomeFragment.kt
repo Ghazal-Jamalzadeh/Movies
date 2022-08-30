@@ -137,10 +137,11 @@ class HomeFragment : Fragment() {
                 lastMoviesRecycler.initRecycler(LinearLayoutManager(requireContext()), lastMoviesAdapter)
             }
             //Click
-//            lastMoviesAdapter.setOnItemClickListener {
-//                val direction = HomeFragmentDirections.actionToDetail(it.id!!.toInt())
-//                findNavController().navigate(direction)
-//            }
+            lastMoviesAdapter.setOnItemClickListener {
+                /* چون این دایرکشن را به صورت گلوبال تعریف کردیم در همه فرگمنت ها میاردش بالا */
+                val direction = HomeFragmentDirections.actionToDetailFragment(it.id!!.toInt())
+                findNavController().navigate(direction)
+            }
 
             //Loading
             viewModel.loading.observe(viewLifecycleOwner) {
