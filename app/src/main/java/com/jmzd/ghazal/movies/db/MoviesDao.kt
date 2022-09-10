@@ -24,7 +24,7 @@ interface MoviesDao {
     *
     * شاید بپرسید چرا همینجا نریختیش تو liveData ؟
     * این بخش را میخوایم داخل viewModel هندل کنیم
-    * اینجا لیست معمولی قرار میدیم همون ططور که در رتروفیت هم این کارو کردیم
+    * اینجا لیست معمولی قرار میدیم همون طور که در رتروفیت هم این کارو کردیم
     * */
     @Query("SELECT * FROM ${Constants.MOVIES_TABLE}")
     fun getAllMovies(): MutableList<MovieEntity>

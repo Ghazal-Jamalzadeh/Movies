@@ -39,11 +39,14 @@
     </style>
     <!--TextInputLayout-->
     <!--حواستون باشه موقع انتخاب پرنت از متریال ۳ استفاده نکنید که با کرش رو به رو میشید-->
+    <!-- حتما از materialComponent استفاده کنید -->
     <!--پرنتی که انتخاب میکنیم تعیین کننده شکل باکس ما خواهد بود و گزینه های متنوعی داریم-->
+    <!-- مثلا outLine دار یا چیزهای دیگه -->
     <style name="CustomFilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="hintTextColor">@color/crayola</item> <!--زرد-->
         <item name="boxStrokeColor">@color/crayola</item><!--زرد-->
         <item name="boxBackgroundColor">@color/gunmetal</item><!--مشکی-->
+        <!-- یک ویژگی دیگه داشت مثلا به اسم backgroundMode که اینجا استفاده نکردیم -->
         <item name="startIconTint">@color/philippineSilver</item>
     </style>
     <!--RoundedImageView-->
